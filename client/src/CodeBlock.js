@@ -76,7 +76,7 @@ const CodeBlock = () => {
       />
       {role === "mentor" && (
         <div>
-          <h2>Students' Code Blocks</h2>
+          <h2>Student's Code Blocks</h2>
           {Object.keys(studentCodes).map((studentId) => (
             <div key={studentId}>
               <h3>Student {studentId}</h3>

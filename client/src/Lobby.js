@@ -10,7 +10,7 @@ const Lobby = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/")
+    fetch("https://coding-app-server-production.up.railway.app")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

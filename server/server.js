@@ -1,10 +1,19 @@
+require("dotenv").config();
+
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://coding-app-client-production.up.railway.app",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 const codeBlocks = [
   { id: 1, name: "Async case", code: "// Async case initial code" },
@@ -25,8 +34,9 @@ app.get("/", (req, res) => {
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://coding-app-client-production.up.railway.app",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
